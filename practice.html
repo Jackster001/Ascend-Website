@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+<body>
+
+
+<img  class="gallery1" src="images/img1.jpg" style="border: 2px solid black;height: 300px;width: 400px; display: block;margin-top: 20px"">
+<img class="gallery1" src="images/img2.jpg" style="border: 2px solid black;height: 300px;width: 400px; display: block; margin-top: 20px">
+
+<img  class="gallery2" src="images/img3.jpg" style="border: 2px solid black;height: 300px;width: 400px; display: none;margin-top: 20px"">
+<img class="gallery2" src="images/img4.jpg" style="border: 2px solid black;height: 300px;width: 400px; display: none;margin-top: 20px">
+
+<button class="btn btn-primary" onclick="back()"  id="back" style="margin-top: 20px;" >Back</button>
+  <button class="btn btn-primary" onclick="next()"  id="next" >Next</button>
+</body>
+
+<script " type="text/javascript">
+  var GalCount=1;
+  var zNum=1;
+  function next(){
+    var className="gallery"+GalCount;
+    var elems = document.getElementsByClassName(className);
+    for (var i=0;i<elems.length;i+=1){
+      elems[i].style.display = 'none';
+      // elems[i].style.zIndex="-1";
+      }
+      var num=Number(GalCount+1)
+    var classNameNext="gallery"+(num);
+    console.log("This is "+classNameNext);
+    var elems = document.getElementsByClassName(classNameNext);
+    for (var i=0;i<elems.length;i+=1){
+      elems[i].style.display = 'block';
+      // elems[i].style.zIndex="1";
+      }
+    GalCount++;
+    console.log(GalCount);
+  }
+  function back(){
+    var className="gallery"+GalCount;
+    var elems = document.getElementsByClassName(className);
+    console.log("This is "+className);
+    for (var i=0;i<elems.length;i+=1){
+      elems[i].style.display = 'none';
+      // elems[i].style.zIndex="-1";
+      }
+      var num2=Number(GalCount-1)
+      var classNamePrev="gallery"+(num2);
+      console.log("This is "+classNamePrev);
+      var elems = document.getElementsByClassName(classNamePrev);
+    for (var i=0;i<elems.length;i+=1){
+      elems[i].style.display="block"; 
+      }
+    GalCount--;
+     console.log(GalCount);
+  }
+</script>
+
+</html>
